@@ -20,7 +20,9 @@ module.exports = function (from, to) {
                 outputNode = bygglib.tree.sourceMap.set(outputNode, sourceMap, { annotate: true });
             }
 
-            bygglib.logger.log('rename', 'Renamed ' + node.name + ' to ' + outputNode.name);
+            if (node.name !== outputNode.name) {
+                bygglib.logger.log('rename', 'Renamed ' + node.name + ' to ' + outputNode.name);    
+            }
 
             return outputNode;
         });
